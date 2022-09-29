@@ -49,3 +49,5 @@ print("Rotating Z, R(theta*e23)Z~R(-theta*e23):",(Rot*Z*Rotm)(e12))
 print("sin(pi/4)*<Z>_2:",Z.value[5] * sin45)
 
 print("\n Instead of having to split the complex quantity Z and multiply only its imaginary component with the sin of pi/4, we can effectively do the same thing using the rotation of pi/8 one dimension up, rotating in the e23 plane with the sandwich multiply.")
+
+print(X*R)
