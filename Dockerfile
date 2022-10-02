@@ -18,3 +18,5 @@ RUN apt-get -y install pip \
 
 
 RUN apt-get install -y git 
+
+ENTRYPOINT ["bash"] 

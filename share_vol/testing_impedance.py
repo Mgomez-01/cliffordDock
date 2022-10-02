@@ -3,7 +3,7 @@ from clifford.g4 import *
 import clifford as cf
 from math import pi, e 
 import math as math
-
+import pyganja
 # impedance Z is a vector related to Y and S
 
 
