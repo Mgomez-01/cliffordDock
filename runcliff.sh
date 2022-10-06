@@ -1,1 +1,1 @@
-docker run -d -it --mount type=bind,source=/home/speedy/theDocks/cliffordDock/share_vol,target=/sharevol clifdock
+docker run -d -it --mount type=bind,source=$(pwd)/share_vol,target=/sharevol clifdock
