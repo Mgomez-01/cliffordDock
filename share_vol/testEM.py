@@ -4,6 +4,7 @@ from clifford.tools.g3c import*
 from clifford.g4 import *
 from pyganja import *
 from math import e,pi
+from cmath import *
 import time
 
 
@@ -45,12 +46,17 @@ ZL = 50+25*e23
 # normalize to 50 ohm line
 zL = ZL/50
 
-# rotating the line by using the e23 plane as the imaginary unit. This generator gives back the rotated impedance. This shows the magnitude stays the same, and the only thing happening is a rotation as we would expect using j or i. 
+# rotating the line by using the e23 plane as the imaginary unit. This generator gives back the rotated impedance. This shows the magnitude stays the same, and the only thing happening is a rotation as we would expect using j or i.
+
+# To show this, we will use cmath to import the complex plane and methods for computing vector quantities
+equivalent_Z = 50 + 25j
+equivalent_zL = equivalent_Z/50
+
+
 while 1:
-    res = e**((-theta*pi/180)*(e23)) 
-    print("Rotation angle degrees: {}\nResult: {}\nMagnitude: {}\n".format(theta,res,res.__abs__()))
+    res = zL*e**((-theta*pi/180)*(e23))
+    res2 = equivalent_zL*e**(-1j*theta*pi/360)
+    print("GA version:\nRotation angle degrees: {}\nResult: {}\nMagnitude: {}\nProjection from G4 into complex impedance plane: {}\n\n".format(theta,res,res.__abs__(),res(2)))
+    print("Conventional:\nRotation angle degrees: {}\nResult: {}\nMagnitude: {}\n\n".format(theta,res2,abs(res2)))
     theta = 0 if (theta == 360) else theta + 1 
     time.sleep(.1)
-
-
-
