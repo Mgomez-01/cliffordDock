@@ -56,7 +56,7 @@ equivalent_zL = equivalent_Z/50
 while 1:
     res = zL*e**((-theta*pi/180)*(e23))
     res2 = equivalent_zL*e**(-1j*theta*pi/360)
-    print("GA version:\nRotation angle degrees: {}\nResult: {}\nMagnitude: {}\nProjection from G4 into complex impedance plane: {}\n\n".format(theta,res,res.__abs__(),res(2)))
+    print("GA version:\nRotation angle degrees: {}\nResult: {}\nMagnitude: {}\n\n".format(theta,res,res.__abs__()))
     print("Conventional:\nRotation angle degrees: {}\nResult: {}\nMagnitude: {}\n\n".format(theta,res2,abs(res2)))
     theta = 0 if (theta == 360) else theta + 1 
     time.sleep(.1)
